@@ -1,0 +1,177 @@
+{% extends "managejob/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+
+    
+    <div class="hero-wrap js-fullheight" id="bgn" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start" data-scrollax-parent="true">
+          <div class="col-md-8 ftco-animate text-center text-md-left mb-5" data-scrollax=" properties: { translateY: '70%' }">
+          	<p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-3"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Post a Job</span></p>
+            <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Post a Job</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ftco-section bg-light">
+      <div class="container">
+        <div class="row">
+       
+          <div class="col-md-12 col-lg-8 mb-5">
+
+
+              {% if form.errors %}
+                {% for field in form %}
+                  {% for error in field.errors %}
+                      <div class="alert alert-danger alert-dismissable">
+                          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                          <strong>{{ field.name }} {{ error|escape }}</strong>
+                      </div>
+                  {% endfor %}
+                {% endfor %}
+              {% endif %}
+          
+			     <form action="" class="p-5 bg-white" method="post">
+              {% csrf_token %}
+
+<!--              <div class="row form-group">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="fullname">Job Title</label>
+                  <input type="text" id="fullname" name="title" class="form-control" placeholder="eg. Professional UI/UX Designer">
+                </div>
+              </div>
+
+
+              <div class="row">
+                  <div class="col-lg-12 form-group">
+                      <label class="font-weight-bold" for="category">Category</label>
+                      <select id="category" name="category" placeholder="Choose category"
+                              class="form-control select2">
+                          <option value="web-design">Web design</option>
+                          <option value="graphic-design">Graphic design</option>
+                          <option value="web-development">Web development</option>
+                          <option value="human-resource">Human Resources</option>
+                          <option value="support">Support</option>
+                          <option value="android">Android</option>
+                      </select>
+                  </div>
+              </div>
+
+
+              <div class="row form-group mb-5">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="fullname">Company</label>
+                  <input type="text" id="fullname" name="company" class="form-control" placeholder="eg. Facebook, Inc.">
+                </div>
+              </div>
+
+
+              <div class="row form-group">
+                <div class="col-md-12"><h3>Job Type</h3></div>
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label for="option-job-type-1">
+                    <input type="radio" id="option-job-type-1" name="jobtype"> Full Time
+                  </label>
+                </div>
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label for="option-job-type-2">
+                    <input type="radio" id="option-job-type-2" name="jobtype"> Part Time
+                  </label>
+                </div>
+
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label for="option-job-type-3">
+                    <input type="radio" id="option-job-type-3" name="jobtype"> Freelance
+                </div>
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label for="option-job-type-4">
+                    <input type="radio" id="option-job-type-4" name="jobtype"> Internship
+                  </label>
+                </div>
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label for="option-job-type-4">
+                    <input type="radio" id="option-job-type-4" name="jobtype"> Termporary
+                  </label>
+                </div>
+
+              </div>
+
+              <div class="row form-group mb-4">
+                <div class="col-md-12"><h3>Location</h3></div>
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <input type="text" name="location" class="form-control" placeholder="Western City, UK">
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12"><h3>Job Description</h3></div>
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <textarea name="description" class="form-control" id="" cols="30" rows="5"></textarea>
+                </div>
+              </div>
+
+
+              <div class="row form-group mb-4">
+                  <div class="col-md-12"><h3>Website URL</h3></div>
+                                <div class="col-md-12 mb-3 mb-md-0">
+                                <input id="apply_url" name="website" type="url" class="form-control">
+                            </div>
+                            
+                        </div>
+
+                <div class="row form-group mb-4">
+                    <div class="col-md-12"><h3>Validity of the post</h3></div>
+                                <div class="col-md-12 mb-3 mb-md-0">
+                                <input id="validity" name="validity" type="date" class="form-control">
+                              </div>
+                                      
+                          </div> 
+ -->
+                  <fieldset class="form-group">
+                    {{ form|crispy }}
+                  </fieldset>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <input type="submit" value="Post" class="btn btn-primary  py-2 px-5">
+                </div>
+              </div>
+
+
+                       
+  
+            </form>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="p-4 mb-3 bg-white">
+              <h3 class="h5 text-black mb-3">Contact Info</h3>
+              <p class="mb-0 font-weight-bold">Address</p>
+              <p class="mb-4">203 Fake St. Mountain View, San Francisco, California, USA</p>
+
+              <p class="mb-0 font-weight-bold">Phone</p>
+              <p class="mb-4"><a href="#">+1 232 3235 324</a></p>
+
+              <p class="mb-0 font-weight-bold">Email Address</p>
+              <p class="mb-0"><a href="#"><span class="__cf_email__" data-cfemail="671e081215020a060e0b2703080a060e094904080a">[email&#160;protected]</span></a></p>
+
+            </div>
+            
+            <div class="p-4 mb-3 bg-white">
+              <h3 class="h5 text-black mb-3">More Info</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa ad iure porro mollitia architecto hic consequuntur. Distinctio nisi perferendis dolore, ipsa consectetur</p>
+              <p><a href="#" class="btn btn-primary  py-2 px-4">Learn More</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+		
+    {% endblock content %}
