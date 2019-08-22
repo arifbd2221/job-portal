@@ -5,3 +5,7 @@ Employees can apply to those jobs. Employer has a rich dashboard to see how many
 are applying for a particular job. Employer can view applicant profile. Employee can search jobs based on their desires.
 Employee/Employer both has Google/Github sign in Authentication part, apart from that Employee/Employer can manually register them into the
 system by providing necessary informations.      
+
+This application is now live on heroku server
+ 
+http://jobsitebd.herokuapp.com/
